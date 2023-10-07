@@ -39,10 +39,10 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
       <div class="align-items-center d-none d-md-flex">
-        <i class="bi bi-clock"></i> Monday - Saturday, 8AM to 10PM
+        <i class="bi bi-clock"></i> Montag - Freitag, 00:08 bis 20:00
       </div>
       <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> Call us now:  {{company_data.call_us}}
+        <i class="bi bi-phone"></i> Rufnummer:  {{company_data.call_us}}
       </div>
     </div>
   </div>
@@ -58,27 +58,10 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#about">ÜBER UNS</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
           <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -100,8 +83,10 @@
         <!-- Slide 1 -->
         <div class="carousel-item active" style="background-image: url({% static 'assets/img/Computed_tomography_2.png' %})">
           <div class="container">
-            <h2>Welcome to <span>Medicio</span></h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+            <h2>Willkommen in <span>Imagiolib</span></h2>
+            <p>Die Computertomographie (CT) 🖥️📷 ist eine medizinische Diagnosetechnik, die Röntgentechnologie mit fortschrittlicher Computerverarbeitung kombiniert. Sie liefert detaillierte Schnittbilder der inneren Strukturen des Körpers, sodass medizinisches Fachpersonal anatomische Merkmale mit großer Präzision visualisieren und analysieren kann. 🏥💡
+
+            </p>
             <a href="#about" class="btn-get-started scrollto">Read More</a>
           </div>
         </div>
@@ -199,29 +184,28 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About Us</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Über uns</h2>
+          <p>🤖🔍📷 Machine-Learning-Modell 🌟🚀
+
+            .Mit diesem Machine-Learning-Modell können Sie Ihr medizinisches Bild hochladen und Vorhersagen erhalten. 📷🔍💡 Das Modell wurde mit Teachable Machine erstellt.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+            <img src="{% static 'assets/img/machine-learning-tumor-detection.jpg' %}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>So funktioniert es:</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i class="bi bi-check-circle"></i>Laden Sie ein Bild hoch.</li>
+              <li><i class="bi bi-check-circle"></i> Das Modell analysiert das Bild und gibt eine Vorhersage aus.</li>
+              <li><i class="bi bi-check-circle"></i> Die Vorhersage wird als Prozentsatz und Klassifizierung angezeigt.</li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+              Probieren Sie es aus und entdecken Sie die Möglichkeiten der maschinellen Bilderkennung! 🚀💭🔬
             </p>
           </div>
         </div>
