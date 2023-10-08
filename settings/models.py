@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -22,3 +22,16 @@ class Company(models.Model):
     
     def __str__(self):
         return self.name
+    
+    
+class UserData(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    phone = models.CharField(max_length=40)
+    
+    
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='settings')
+    
