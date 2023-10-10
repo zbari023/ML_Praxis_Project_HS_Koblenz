@@ -253,15 +253,7 @@
         <div class="text-center">
           <h3>In an emergency? Need help now?</h3>
           <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn scrollto" href="#appointment">Make an Make an Appointment</a>
-          <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div>
-                <label for="{{ imgform.image.id_for_label }}">Image:</label>
-                <input type="file" accept="image/*" name="{{ imgform.image.name }}"/>
-            </div>
-            <button type="submit">Upload</button>
-        </form>
+        <a type="submit" class="cta-btn scrollto" href="#appointment">Make an Make an Appointment</a>
         </div>
 
       </div>
@@ -320,28 +312,16 @@
 
         <div class="row">
           <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
-            <div class="icon-box mt-5 mt-lg-0">
-              <i class="bx bx-receipt"></i>
-              <h4>Est labore ad</h4>
-              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-            </div>
-            <div class="icon-box mt-5">
-              <i class="bx bx-cube-alt"></i>
-              <h4>Harum esse qui</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-            </div>
-            <div class="icon-box mt-5">
-              <i class="bx bx-images"></i>
-              <h4>Aut occaecati</h4>
-              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-            </div>
-            <div class="icon-box mt-5">
-              <i class="bx bx-shield"></i>
-              <h4>Beatae veritatis</h4>
-              <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-            </div>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div>
+                  <label for="{{ imgform.image.id_for_label }}">Image:</label>
+                  <input type="file" accept="image/*" name="{{ imgform.image.name }}"/>
+              </div>
+              <button type="submit" class="appointment-btn mt-3">Data Absnden</button>
+          </form>
           </div>
-          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url({% static 'assets/img/features.jpg' %});' data-aos="zoom-in"></div>
+          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url({{ image.image.url }});' data-aos="zoom-in"></div>
         </div>
 
       </div>
