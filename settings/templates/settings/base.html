@@ -316,10 +316,16 @@
               {% csrf_token %}
               <div>
                   <label for="{{ imgform.image.id_for_label }}">Image:</label>
-                  <input type="file" accept="image/*" name="{{ imgform.image.name }}"/>
+                  <input type="file" accept="image/*" name="{{ imgform.image.name }}" onclick="init()" onchange="handleImageUpload(event)"/>
               </div>
-              <button type="submit" class="appointment-btn mt-3">Data Absnden</button>
+              
+              <div>
+                Teachable Machine Image Model:
+            </div>
+            <div id="label-container"></div>
+              <button type="submit" class="appointment-btn mt-3">Image absenden</button>
           </form>
+
           </div>
           <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url({{ image.image.url }});' data-aos="zoom-in"></div>
         </div>
@@ -969,3 +975,73 @@
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+<script type="text/javascript">
+  // More API functions here:
+  // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+  // the link to your model provided by Teachable Machine export panel
+  const URL = "https://teachablemachine.withgoogle.com/models/EKNQW_21J/";
+
+  let model, labelContainer, maxPredictions;
+  let uploadedImage;
+
+  function handleImageUpload(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+          const img = new Image();
+          img.src = e.target.result;
+          img.onload = async function () {
+              uploadedImage = img;
+              predict();
+          };
+      };
+      reader.readAsDataURL(file);
+  }
+
+  // Load the image model
+  async function init() {
+      const modelURL = URL + "model.json";
+      const metadataURL = URL + "metadata.json";
+
+      // load the model and metadata
+      model = await tmImage.load(modelURL, metadataURL);
+      maxPredictions = model.getTotalClasses();
+
+      labelContainer = document.getElementById("label-container");
+      for (let i = 0; i < maxPredictions; i++) {
+          labelContainer.appendChild(document.createElement("div"));
+      }
+  }
+
+  // Predict on the uploaded image
+  async function predict() {
+      // predict can take in an image, video, or canvas HTML element
+      const prediction = await model.predict(uploadedImage);
+      let maxPrediction = 0;
+      let maxPredictionIndex = 0;
+
+      for (let i = 0; i < maxPredictions; i++) {
+          const probability = prediction[i].probability.toFixed(2) * 100;
+          if (probability > maxPrediction) {
+              maxPrediction = probability;
+              maxPredictionIndex = i;
+          }
+      }
+
+      const maxPredictionLabel =
+          "The result is : " +
+          maxPrediction.toFixed(2) +
+          "%  " +
+          prediction[maxPredictionIndex].className +
+          " Image";
+          
+          
+          
+
+      labelContainer.innerHTML = maxPredictionLabel;
+  }
+</script>
