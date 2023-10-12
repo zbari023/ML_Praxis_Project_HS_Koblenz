@@ -59,8 +59,8 @@
         <ul>
           <li><a class="nav-link scrollto " href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">ÜBER UNS</a></li>
-          <li><a class="nav-link scrollto" href="#services">Service</a></li>
           <li><a class="nav-link scrollto" href="#doctors">Geräte</a></li>
+          <li><a class="nav-link scrollto" href="#services">Service</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontakt</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -327,7 +327,7 @@
           </form>
 
           </div>
-          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url({{ image.image.url }});' data-aos="zoom-in"></div>
+          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("");' data-aos="zoom-in"></div>
         </div>
 
       </div>
@@ -976,6 +976,7 @@
 </body>
 
 </html>
+
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 
@@ -990,19 +991,20 @@
   let uploadedImage;
 
   function handleImageUpload(event) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function (e) {
-          const img = new Image();
-          img.src = e.target.result;
-          img.onload = async function () {
-              uploadedImage = img;
-              predict();
-          };
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = new Image();
+      img.src = e.target.result;
+      img.onload = async function () {
+        uploadedImage = img;
+        const imagePreview = document.querySelector(".image");
+        imagePreview.style.backgroundImage = `url(${img.src})`;
+        predict();
       };
-      reader.readAsDataURL(file);
+    };
+    reader.readAsDataURL(file);
   }
-
   // Load the image model
   async function init() {
       const modelURL = URL + "model.json";
@@ -1046,3 +1048,5 @@
       labelContainer.innerHTML = maxPredictionLabel;
   }
 </script>
+
+
