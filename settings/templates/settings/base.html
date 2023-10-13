@@ -310,7 +310,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
+          <div class="col-lg-6 order-2 order-lg-1 my-4" data-aos="fade-right">
             <form method="post" enctype="multipart/form-data">
               {% csrf_token %}
               <div>
@@ -326,7 +326,7 @@
           </form>
 
           </div>
-          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("");' data-aos="zoom-in"></div>
+          <div class="image img-fluid col-lg-6 order-1 order-lg-2 my-4" style='background-image: url("");' data-aos="zoom-in"></div>
         </div>
 
       </div>
@@ -456,80 +456,31 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Pricing</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Kosten</h2>
+          <p>Es ist komplett kostenlos!. Entdecke unsere großartige kostenlose Option! Mit unserem Free-Paket erhältst du unbegrenzten und kostenlosen Zugang zu allen Funktionen unserer Plattform</p>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-3 col-md-6">
-            <div class="box" data-aos="fade-up" data-aos-delay="100">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+
+          <div class="col-lg-3 col-md-6 mt-4 mt-md-0 mx-auto">
             <div class="box featured" data-aos="fade-up" data-aos-delay="200">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
+              <h3>Free</h3>
+              <h4><sup>$</sup>0<span> / monatlich</span></h4>
               <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
+                <li>Unbegrenzter und kostenloser Zugang zu allen Funktionen</li>
+                <li>Kostenlose Updates und Wartung</li>
+                <li>Vollständige Verfügbarkeit</li>
+                <li class="na">Premium</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <a href="#" class="btn-buy">Jetzt kostenlos nutzen</a>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="fade-up" data-aos-delay="300">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="fade-up" data-aos-delay="400">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
 
         </div>
 
@@ -560,22 +511,22 @@
               <div class="col-md-12">
                 <div class="info-box">
                   <i class="bx bx-map"></i>
-                  <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <h3>Unsere Addresse</h3>
+                  <p>{{company_data.address}}</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@example.com<br>contact@example.com</p>
+                  <h3>Email uns</h3>
+                  <p>{{company_data.email_us}}</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  <h3>Call uns</h3>
+                  <p>{{company_data.call_us}}</p>
                 </div>
               </div>
             </div>
