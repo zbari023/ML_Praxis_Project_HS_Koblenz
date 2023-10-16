@@ -29,10 +29,12 @@ class UserData(models.Model):
     email = models.CharField(max_length=200)
     phone = models.CharField(max_length=40)
     def __str__(self):
-        return self.name
+        return self.name 
     
 
 
 class Image(models.Model):
     image = models.ImageField(upload_to='settings')
+    result = models.CharField(max_length=100)
+
     
