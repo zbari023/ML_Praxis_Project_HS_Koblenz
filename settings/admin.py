@@ -5,10 +5,11 @@ from .models import Company,Image,UserData
 
 
 
+
 class UserDataAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone']
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['image']
+    list_display = ['image','result']
     list_filter = ['image']
     search_fields = ['image']
     

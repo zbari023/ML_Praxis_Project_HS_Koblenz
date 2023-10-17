@@ -36,5 +36,7 @@ class UserData(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to='settings')
     result = models.CharField(max_length=100)
+    def __str__(self):
+        return self.image.name
 
     
