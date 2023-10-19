@@ -26,8 +26,19 @@ def home(request):
     else:
         form = NameuploadForm()
         imgform = ImageUploadForm()
-        
-    context.update({'form': form, 'imgform': imgform})
+    if request.method == 'POST':
+        eform = ContactForm(request.POST)
+        if eform.is_valid(): 
+            eform.save()
+            subject = "Welcome to Imagiolib"
+            message = "Our team will contact you within 24hrs."
+            email_from = settings.EMAIL_HOST_USER
+            email = eform.cleaned_data['email']
+            recipient_list =email
+            send_mail(subject, message, email_from, [recipient_list])
+            return render(request, '/') 
+    eform = ContactForm()
+    context.update({'form': form, 'imgform': imgform ,'eform': eform})
     return render(request, 'settings/base.html', context)
 
 def contact(request):
