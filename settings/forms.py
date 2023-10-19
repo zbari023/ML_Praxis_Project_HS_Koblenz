@@ -1,6 +1,6 @@
 
 from django import forms 
-from .models import UserData , Image
+from .models import UserData , Image , Contact
 
 class NameuploadForm(forms.ModelForm):
     class Meta:
@@ -12,7 +12,7 @@ class ImageUploadForm(forms.ModelForm):
         model = Image
         fields = ['image']
         
-class ContactForm(forms.Form):
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'

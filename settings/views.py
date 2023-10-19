@@ -1,9 +1,8 @@
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.core.mail import send_mail
+from django.conf import settings
 from django.shortcuts import render, redirect
-from .forms import NameuploadForm, ImageUploadForm
+from .forms import NameuploadForm, ImageUploadForm ,ContactForm
 from .models import Image
-from .forms import ContactForm
 
 # Create your views here.
 
@@ -31,21 +30,18 @@ def home(request):
     context.update({'form': form, 'imgform': imgform})
     return render(request, 'settings/base.html', context)
 
-def contactView(request):
-    if request.method == "GET":
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = form.cleaned_data["subject"]
-            from_email = form.cleaned_data["from_email"]
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ["barry450643@gmail.com"])
-            except BadHeaderError:
-                return HttpResponse("Invalid header found.")
-            return redirect("success")
-    return render(request, "settings/email.html", {"form": form})
-
-def successView(request):
-    return HttpResponse("Success! Thank you for your message.")
+def contact(request):
+    if request.method == 'POST':
+        eform = ContactForm(request.POST)
+        if eform.is_valid(): 
+            eform.save()
+            subject = "Welcome to Imagiolib"
+            message = "Our team will contact you within 24hrs."
+            email_from = settings.EMAIL_HOST_USER
+            email = eform.cleaned_data['email']
+            recipient_list =email
+            send_mail(subject, message, email_from, [recipient_list])
+            return render(request, 'settings/success.html') 
+    eform = ContactForm()
+    context = {'eform': eform}
+    return render(request, 'settings/contact.html', context)

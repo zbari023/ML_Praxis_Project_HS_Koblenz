@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Company,Image,UserData
+from .models import Company,Image,UserData, Contact
 
 
 
@@ -16,3 +16,4 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Image ,PostAdmin)
 admin.site.register(Company)
 admin.site.register(UserData,UserDataAdmin)
+admin.site.register(Contact)
