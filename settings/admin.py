@@ -12,8 +12,11 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['image','result']
     list_filter = ['image']
     search_fields = ['image']
+class ContactDataAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email']
+    
     
 admin.site.register(Image ,PostAdmin)
 admin.site.register(Company)
 admin.site.register(UserData,UserDataAdmin)
-admin.site.register(Contact)
+admin.site.register(Contact,ContactDataAdmin)

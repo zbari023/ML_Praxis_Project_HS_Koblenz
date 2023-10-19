@@ -17,17 +17,13 @@ def home(request):
     if request.method == 'POST':
         form = NameuploadForm(request.POST)
         imgform = ImageUploadForm(request.POST, request.FILES)
+        eform = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/')  # Redirect to a page displaying uploaded images
         if imgform.is_valid():
             imgform.save()
-            return redirect('/') 
-    else:
-        form = NameuploadForm()
-        imgform = ImageUploadForm()
-    if request.method == 'POST':
-        eform = ContactForm(request.POST)
+            return redirect('/')
         if eform.is_valid(): 
             eform.save()
             subject = "Welcome to Imagiolib"
@@ -36,12 +32,16 @@ def home(request):
             email = eform.cleaned_data['email']
             recipient_list =email
             send_mail(subject, message, email_from, [recipient_list])
-            return render(request, '/') 
-    eform = ContactForm()
-    context.update({'form': form, 'imgform': imgform ,'eform': eform})
+            return redirect('/')  
+    else:
+        form = NameuploadForm()
+        imgform = ImageUploadForm()
+        eform = ContactForm()
+
+    context.update({'form': form, 'imgform': imgform,'eform': eform})
     return render(request, 'settings/base.html', context)
 
-def contact(request):
+""" def contact(request):
     if request.method == 'POST':
         eform = ContactForm(request.POST)
         if eform.is_valid(): 
@@ -55,4 +55,4 @@ def contact(request):
             return render(request, 'settings/success.html') 
     eform = ContactForm()
     context = {'eform': eform}
-    return render(request, 'settings/contact.html', context)
+    return render(request, 'settings/contact.html', context) """

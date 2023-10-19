@@ -509,7 +509,7 @@
 
         <div class="row mt-5">
 
-          <div class="col-lg-6">
+          <div class="col-lg-6 mx-auto my-5">
 
             <div class="row">
               <div class="col-md-12">
@@ -537,13 +537,11 @@
 
           </div>
 
-          <div class="col-lg-6">
-            <form method="post" action="" enctype="multipart/form-data">
+          <div class="col-lg-6 mx-auto my-5">
+            <form method="post" >
               {% csrf_token %}
-              <div class="row">
-                {% bootstrap_form eform %}
-                {% bootstrap_button button_type="submit" content="OK" %}
-              </div>
+              {% bootstrap_form eform %}
+              {% bootstrap_button button_type="submit" content="Absenden" %}
             </form>
           </div>
 
