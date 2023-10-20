@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render, redirect
 from .forms import NameuploadForm, ImageUploadForm ,ContactForm
-from .models import Image
+from .models import Image, UserData ,Contact
 
 # Create your views here.
 
@@ -39,7 +39,7 @@ def home(request):
         eform = ContactForm()
 
     context.update({'form': form, 'imgform': imgform,'eform': eform})
-    return render(request, 'settings/base.html', context)
+    return render(request, 'settings/index.html', context)
 
 """ def contact(request):
     if request.method == 'POST':
@@ -56,3 +56,13 @@ def home(request):
     eform = ContactForm()
     context = {'eform': eform}
     return render(request, 'settings/contact.html', context) """
+    
+def dashboard(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
+    return render(request,'settings/dashboard.html',{
+        'images':images , 
+        'user': user , 
+        'contacting': contacting 
+    })
