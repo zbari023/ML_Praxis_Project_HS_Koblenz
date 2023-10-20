@@ -44,6 +44,19 @@ def home(request):
     context.update({'form': form, 'imgform': imgform,'eform': eform,'images':images ,'user': user ,'contacting': contacting })
     return render(request, 'settings/index.html', context)
 
+
+    
+def dashboard(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
+    return render(request,'settings/dashboard.html',{
+        'images':images , 
+        'user': user , 
+        'contacting': contacting 
+    })
+    
+
 """ def contact(request):
     if request.method == 'POST':
         eform = ContactForm(request.POST)
@@ -59,13 +72,3 @@ def home(request):
     eform = ContactForm()
     context = {'eform': eform}
     return render(request, 'settings/contact.html', context) """
-    
-def dashboard(request):
-    images = Image.objects.all().count()
-    user = UserData.objects.all().count()
-    contacting = Contact.objects.all().count()
-    return render(request,'settings/dashboard.html',{
-        'images':images , 
-        'user': user , 
-        'contacting': contacting 
-    })

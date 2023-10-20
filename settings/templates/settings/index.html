@@ -263,49 +263,40 @@
     <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
 
-        <div class="row no-gutters">
+      <div class="row no-gutters">
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="fas fa-user-md"></i>
+
+          <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+              <i class="fa-solid fa-image"></i>
               <span data-purecounter-start="0" data-purecounter-end="{{images}}" data-purecounter-duration="3" class="purecounter"></span>
-
-              <p><strong>Doctors</strong> consequuntur quae qui deca rode</p>
-              <a href="#">Find out more &raquo;</a>
-            </div>
+              <p><strong>Bilder</strong> ,die in Imagiolib hochgeladen wurden.</p>
+              <a href="#">Imagiolib &raquo;</a>
+          </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="far fa-hospital"></i>
-              <span data-purecounter-start="0" data-purecounter-end="26" data-purecounter-duration="3" class="purecounter"></span>
-              <p><strong>Departments</strong> adipisci atque cum quia aut numquam delectus</p>
-              <a href="#">Find out more &raquo;</a>
-            </div>
+          <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+              <i class="fa-solid fa-user"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{user}}" data-purecounter-duration="3" class="purecounter"></span>
+              <p><strong>Users</strong> ,die inn Imgiolib ihre Daten abgesendet haben. </p>
+              <a href="#">Imagiolib &raquo;</a>
+          </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="fas fa-flask"></i>
-              <span data-purecounter-start="0" data-purecounter-end="14" data-purecounter-duration="3" class="purecounter"></span>
-              <p><strong>Research Lab</strong> aut commodi quaerat. Aliquam ratione</p>
-              <a href="#">Find out more &raquo;</a>
-            </div>
+          <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+              <i class="fa-solid fa-message"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{contacting}}" data-purecounter-duration="3" class="purecounter"></span>
+              <p><strong>E-mails</strong> ,die zum Admin und Users geschickt sind.</p>
+              <a href="#">Imagiolib &raquo;</a>
           </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="fas fa-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="3" class="purecounter"></span>
-              <p><strong>Awards</strong> rerum asperiores dolor molestiae doloribu</p>
-              <a href="#">Find out more &raquo;</a>
-            </div>
           </div>
-
-        </div>
 
       </div>
-    </section><!-- End Counts Section -->
+
+      </div>
+  </section><!-- End Counts Section -->
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">
@@ -316,17 +307,12 @@
             
             <form method="post" enctype="multipart/form-data">
               {% csrf_token %}
-              <div>
-                  <label for="{{ imgform.image.id_for_label }}">Image:</label>
-                  <input type="file" accept="image/*" name="{{ imgform.image.name }}" onclick="init()" onchange="handleImageUpload(event)"/>
-              </div>
-              
+              {% bootstrap_form imgform %}
+              {% bootstrap_button button_type="submit" content="Absenden" extra_classes="appointment-btn mt-3" %}
               <div>
                 Teachable Machine Image Model:
             </div>
             <div id="label-container"></div>
-            
-              <button type="submit" class="appointment-btn mt-3">Image absenden</button>
           </form>
 
           </div>
