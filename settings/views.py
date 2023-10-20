@@ -8,6 +8,9 @@ from .models import Image, UserData ,Contact
 
 
 def home(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
     if Image.objects.exists():
         image = Image.objects.latest('id')
         context = {'image': image}
@@ -38,7 +41,7 @@ def home(request):
         imgform = ImageUploadForm()
         eform = ContactForm()
 
-    context.update({'form': form, 'imgform': imgform,'eform': eform})
+    context.update({'form': form, 'imgform': imgform,'eform': eform,'images':images ,'user': user ,'contacting': contacting })
     return render(request, 'settings/index.html', context)
 
 """ def contact(request):
