@@ -4,16 +4,55 @@
 
 
 {% block body %}
+
+    <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+                <a href="/" class="logo me-auto"><img src="{% static 'assets/img/logo-1.jpg' %}" alt=""></a>
+            </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+                <i class="fa-solid fa-image"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{images}}" data-purecounter-duration="3" class="purecounter"></span>
+                <p><strong>Bilder</strong> ,die in Imagiolib hochgeladen wurden</p>
+                <a href="#">Imagiolib &raquo;</a>
+            </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+                <i class="fa-solid fa-user"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{user}}" data-purecounter-duration="3" class="purecounter"></span>
+                <p><strong>Users</strong> ,die inn Imgiolib ihre Daten abgesendet haben </p>
+                <a href="#">Imagiolib &raquo;</a>
+            </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+                <i class="fa-solid fa-message"></i>
+                <span data-purecounter-start="0" data-purecounter-end="{{contacting}}" data-purecounter-duration="3" class="purecounter"></span>
+                <p><strong>E-mails</strong> ,die zum Admin und Users geschickt sind und </p>
+                <a href="#">Imagiolib &raquo;</a>
+            </div>
+            </div>
+
+        </div>
+
+        </div>
+    </section><!-- End Counts Section -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-m-4 col-sm-4 my-5">
-                <canvas id="myChart"></canvas>
         </div>
-        <div class="col-lg-4 col-m-4 col-sm-4 my-5">
+        <div class="col-lg-6 col-m-6 col-sm-6 my-5 mx-auto">
             <canvas id="myChart2"></canvas>
     </div>
-    <div class="col-lg-4 col-m-4 col-sm-4 my-5">
-        <canvas id="myChart3"></canvas>
         
 </div>
     </div>
@@ -22,36 +61,17 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script>
-    const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Users', 'Products', 'Brands', 'Reviews', 'orders'],
-        datasets: [{
-        label: '# of Votes',
-        data: ["{{users}}", "{{products}}", "{{brands}}", "{{reviews}}", "{{orders}}"],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
-    }
-    });
 
     const ctx2 = document.getElementById('myChart2');
 
     new Chart(ctx2, {
     type: 'pie',
     data: {
-        labels: ['Recieved', 'Processed', 'Shipped', 'Delivered'],
+        labels: ['Users', 'Images', 'Contact'],
         datasets: [{
         label: '# of Votes',
-        data: ["{{recieved}}","{{processed}}","{{shipped}}","{{delivered}}"],
+        data: ["{{user}}","{{images}}","{{contacting}}"],
         borderWidth: 1
         }]
     },
@@ -65,25 +85,7 @@
     });
 
 
-    const ctx3 = document.getElementById('myChart3');
-    new Chart(ctx3, {
-        type: 'pie',
-        data: {
-            labels: ['Sale', 'New', 'Feature'],
-            datasets: [{
-            label: '# of Votes',
-            data: ["{{new_products}}", "{{sale_products}}", "{{feature_products}}"],
-            borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-            y: {
-                beginAtZero: true
-            }
-            }
-        }
-        });
+
 </script>
 {% endblock body %}
 
