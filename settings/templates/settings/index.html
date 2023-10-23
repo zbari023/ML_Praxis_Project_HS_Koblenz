@@ -308,13 +308,7 @@
             <form method="post" enctype="multipart/form-data">
               {% csrf_token %}
               {% bootstrap_form imgform %}
-              
               {% bootstrap_button button_type="submit" content="Absenden" extra_classes="appointment-btn mt-3" %}
-              <div>
-                Teachable Machine Image Model:
-            </div>
-            <div id="label-container">
-            </div>
           </form>
 
           </div>

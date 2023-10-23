@@ -12,8 +12,8 @@ class ImageUploadForm(forms.ModelForm):
         model = Image
         fields = ['image','result']
         widgets = {
-                'image': forms.ClearableFileInput(attrs={'onclick': 'init()', 'onchange': 'handleImageUpload(event)'})
-                
+                'image': forms.ClearableFileInput(attrs={'onclick': 'init()', 'onchange': 'handleImageUpload(event)'}),
+                'result':forms.Textarea(attrs={'id':"label-container"})
         }
         
 class ContactForm(forms.ModelForm):
