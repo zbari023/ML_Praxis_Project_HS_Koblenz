@@ -23,10 +23,10 @@ def home(request):
         eform = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')  # Redirect to a page displaying uploaded images
+            return redirect('answer/')  # Redirect to a page displaying uploaded images
         if imgform.is_valid():
             imgform.save()
-            return redirect('/')
+            return redirect('answer/')
         if eform.is_valid(): 
             eform.save()
             subject = "Welcome to Imagiolib"
@@ -35,7 +35,7 @@ def home(request):
             email = eform.cleaned_data['email']
             recipient_list =email
             send_mail(subject, message, email_from, [recipient_list])
-            return redirect('/')  
+            return redirect('answer/')  
     else:
         form = NameuploadForm()
         imgform = ImageUploadForm()
@@ -44,7 +44,30 @@ def home(request):
     context.update({'form': form, 'imgform': imgform,'eform': eform,'images':images ,'user': user ,'contacting': contacting })
     return render(request, 'settings/index.html', context)
 
-""" def contact(request):
+
+def dashboard(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
+    return render(request,'settings/dashboard.html',{
+        'images':images , 
+        'user': user , 
+        'contacting': contacting 
+    })
+def answer(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
+    return render(request,'settings/answer.html',{
+        'images':images , 
+        'user': user , 
+        'contacting': contacting 
+    })
+    
+    
+    
+    
+    """ def contact(request):
     if request.method == 'POST':
         eform = ContactForm(request.POST)
         if eform.is_valid(): 
@@ -60,12 +83,3 @@ def home(request):
     context = {'eform': eform}
     return render(request, 'settings/contact.html', context) """
     
-def dashboard(request):
-    images = Image.objects.all().count()
-    user = UserData.objects.all().count()
-    contacting = Contact.objects.all().count()
-    return render(request,'settings/dashboard.html',{
-        'images':images , 
-        'user': user , 
-        'contacting': contacting 
-    })

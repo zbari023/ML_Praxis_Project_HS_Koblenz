@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from settings.views import home , dashboard
+from settings.views import home , dashboard , answer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path('dashboard/',dashboard)
+    path('dashboard/',dashboard),
+    path('answer/',answer),
+    
 ]
 
 
