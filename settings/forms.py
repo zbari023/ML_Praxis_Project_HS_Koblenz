@@ -5,7 +5,7 @@ from .models import UserData , Image , Contact
 class NameuploadForm(forms.ModelForm):
     class Meta:
         model = UserData
-        fields = ['name','email','phone']
+        fields = ['name','email','telefonnummer']
 
 class ImageUploadForm(forms.ModelForm):
     class Meta:

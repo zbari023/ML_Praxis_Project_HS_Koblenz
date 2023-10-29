@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-
+# Models class for the Admin Infomations
 class Company(models.Model):
     name = models.CharField(max_length=50)
     logo = models.ImageField(upload_to='company')
@@ -23,23 +23,23 @@ class Company(models.Model):
     def __str__(self):
         return self.name
     
-    
+# Models class for the Userdata
 class UserData(models.Model):
     name = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
-    phone = models.CharField(max_length=40)
+    telefonnummer = models.CharField(max_length=40)
     def __str__(self):
         return self.name 
     
 
-
+# Models class for the uploaded image with his result
 class Image(models.Model):
     image = models.ImageField(upload_to='settings')
     result = models.CharField(max_length=100)
     def __str__(self):
         return self.image.name
 
-
+# Models class for the contacting with the Admin
 class Contact(models.Model):
     name = models.CharField(max_length=250)
     email = models.EmailField()
