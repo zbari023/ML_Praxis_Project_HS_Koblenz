@@ -593,18 +593,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-<script src="{% static 'assets/js/teachable_machine.js' %}"></script>
-
 <script type="text/javascript">
   // More API functions here:
   // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
   // the link to your model provided by Teachable Machine export panel
   const URL = "https://teachablemachine.withgoogle.com/models/EKNQW_21J/";
-
+// 
   let model, labelContainer, maxPredictions;
   let uploadedImage;
-
+// This function will take the uploaded image from the user and display it in html
   function handleImageUpload(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -620,7 +618,7 @@
     };
     reader.readAsDataURL(file);
   }
-  // Load the image model
+  // here will Load the image to URL-modell and create a div-html to dieplay the prediction of uploaded image
   async function init() {
       const modelURL = URL + "model.json";
       const metadataURL = URL + "metadata.json";
@@ -635,7 +633,7 @@
       }
   }
 
-  // Predict on the uploaded image
+  //This function will make the Prediction on the uploaded image
   async function predict() {
       // predict can take in an image, video, or canvas HTML element
       const prediction = await model.predict(uploadedImage);
@@ -649,7 +647,7 @@
               maxPredictionIndex = i;
           }
       }
-
+// Here will be shown the result of the prdiction image on html
       const maxPredictionLabel =
           "The result is : " +
           maxPrediction.toFixed(2) +
@@ -657,10 +655,6 @@
           prediction[maxPredictionIndex].className +
           " Image";
       labelContainer.innerHTML = maxPredictionLabel;
-
-
-
-
   }
 </script>
 
