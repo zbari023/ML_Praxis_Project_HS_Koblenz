@@ -35,7 +35,7 @@ def home(request):
             email = eform.cleaned_data['email']
             recipient_list =email
             send_mail(subject, message, email_from, [recipient_list]) # sending the answer-E-mail to the user
-            return redirect('answer/')  
+            return redirect('answermessage/')  
     else:
         form = NameuploadForm()
         imgform = ImageUploadForm()
@@ -72,6 +72,16 @@ def answerimg(request):
     user = UserData.objects.all().count()
     contacting = Contact.objects.all().count()
     return render(request,'settings/answerimg.html',{
+        'images':images , 
+        'user': user , 
+        'contacting': contacting 
+    })
+# create the answer page for making sure, that the user his data is uploaded
+def answermessage(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
+    return render(request,'settings/answermessage.html',{
         'images':images , 
         'user': user , 
         'contacting': contacting 
