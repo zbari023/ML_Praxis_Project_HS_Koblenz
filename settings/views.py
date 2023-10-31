@@ -23,10 +23,10 @@ def home(request):
         eform = ContactForm(request.POST)      # gitting the request data from the form-class, which content the contact data
         if form.is_valid():
             form.save()                        # saving the request data in db
-            return redirect('answer/')         # Redirect to a page to make sure for the user, that his image is uploaded
+            return redirect('answeruser/')         # Redirect to a page to make sure for the user, that his image is uploaded
         if imgform.is_valid():
             imgform.save()
-            return redirect('answer/')
+            return redirect('answerimg/')
         if eform.is_valid(): 
             eform.save()
             subject = "Welcome to Imagiolib"
@@ -56,16 +56,25 @@ def dashboard(request):
     })
     
 # create the answer page for making sure, that the user his data is uploaded
-def answer(request):
+def answeruser(request):
     images = Image.objects.all().count()
     user = UserData.objects.all().count()
     contacting = Contact.objects.all().count()
-    return render(request,'settings/answer.html',{
+    return render(request,'settings/answeruser.html',{
         'images':images , 
         'user': user , 
         'contacting': contacting 
     })
     
-    
+# create the answer page for making sure, that the user his data is uploaded
+def answerimg(request):
+    images = Image.objects.all().count()
+    user = UserData.objects.all().count()
+    contacting = Contact.objects.all().count()
+    return render(request,'settings/answerimg.html',{
+        'images':images , 
+        'user': user , 
+        'contacting': contacting 
+    })
     
     

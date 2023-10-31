@@ -58,16 +58,19 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">ÜBER UNS</a></li>
+          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#doctors">Geräte</a></li>
+          <li><a class="nav-link scrollto" href="#appointment" >Benutzerdaten</a></li>
+          <li><a class="nav-link scrollto" href="#about">ÜBER UNS</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontakt</a></li>
           <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
+          
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Benutzerdaten</span></a>
+      
 
     </div>
   </header><!-- End Header -->
@@ -175,134 +178,6 @@
       </div>
   </section><!-- End Counts Section -->
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Über uns</h2>
-          <h5>🤖🔍📷 Machine-Learning-Modell 🌟🚀
-
-            .Mit diesem Machine-Learning-Modell können Sie Ihr medizinisches Bild hochladen und Vorhersagen erhalten. 📷🔍💡 Das Modell wurde mit Teachable Machine erstellt.</h5>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-right">
-            <img src="{% static 'assets/img/machine-learning-tumor-detection.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>So funktioniert es:</h3>
-            <p class="fst-italic">
-
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i>Laden Sie ein Bild hoch.</li>
-              <li><i class="bi bi-check-circle"></i> Das Modell analysiert das Bild und gibt eine Vorhersage aus.</li>
-              <li><i class="bi bi-check-circle"></i> Die Vorhersage wird als Prozentsatz und Klassifizierung angezeigt.</li>
-            </ul>
-            <p>
-              Probieren Sie es aus und entdecken Sie die Möglichkeiten der maschinellen Bilderkennung! 🚀💭🔬
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-    <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="fa-solid fa-user"></i></div>
-              <h4 class="title"><a href="#appointment">Ihre Daten </a></h4>
-              <p class="description">Geben Sie bitte Ihren Namen , Ihre E-mail Addresse und die Telephonnummer ein</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="fa-solid fa-image"></i></div>
-              <h4 class="title"><a href="#appointment">Bild auswählen</a></h4>
-              <p class="description">Wählen Sie bitte Ihr medizinisches Bild aus Ihrem Datei aus</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><i class="fa-solid fa-upload"></i></div>
-              <h4 class="title"><a href="#appointment">Bild Hochladen</a></h4>
-              <p class="description">Öffnen Sie bitte das ausgewähltes Bild aus Ihrem PC </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
-              <h4 class="title"><a href="#appointment">Das Ergebnis</a></h4>
-              <p class="description">Wenn Sie das Bild hochgeladen haben, dann sehen Sie es und das Ergebnis</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Featured Services Section -->
-
-    <section id="appointment" class="appointment section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Benutzerdaten</h2>
-          <p>
-            Bitte füllen Sie das folgende Daten aus. Wir benötigen Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer. Sobald Sie das Formular ausgefüllt haben, klicken Sie bitte auf die Schaltfläche 'Absenden', um Ihre Daten an uns zu senden. Wir werden Ihre Daten vertraulich behandeln und nur für den Zweck verwenden.</p>
-        </div>
-        <div class="col-lg-6 mx-auto">
-            <form method="post" enctype="multipart/form-data" class="col-md-12 form-group mt-3 mt-md-12" data-aos="fade-up" data-aos-delay="100">
-              {% csrf_token %}
-              {% bootstrap_form form %}
-              {% bootstrap_button button_type="submit" content="Absenden" extra_classes="appointment-btn mt-3" %}
-          </form>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="text-center">
-          <h3>Probieren Sie jetzt das Modell aus</h3>
-          <p>Senden Sie bitte anschließend das Ergebniss. Das hilft uns, das Modell hochmodern und intelligent weiterzuarbeiten.  </p>
-        <a type="submit" class="cta-btn scrollto" href="#about">wie das Modell genau funktioniert</a>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1 my-4" data-aos="fade-right">
-            
-            <form method="post" enctype="multipart/form-data">
-              {% csrf_token %}
-              {% bootstrap_form imgform %}
-              {% bootstrap_button button_type="submit" content="Absenden" extra_classes="appointment-btn mt-3" %}
-          </form>
-
-          </div>
-          <div class="image img-fluid col-lg-6 order-1 order-lg-2 my-4" style='background-image: url("");' data-aos="zoom-in"></div>
-        </div>
-
-      </div>
-    </section><!-- End Features Section -->
-
-    
     <section id="doctors" class="doctors section-bg"><!-- ======= Doctors Section ======= -->
       <div class="container" data-aos="fade-up">
 
@@ -412,6 +287,136 @@
 
       </div>
     </section><!-- End Gallery Section -->
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="fa-solid fa-user"></i></div>
+              <h4 class="title"><a href="#appointment">Ihre Daten </a></h4>
+              <p class="description">Geben Sie bitte Ihren Namen , Ihre E-mail Addresse und die Telephonnummer ein</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="fa-solid fa-image"></i></div>
+              <h4 class="title"><a href="#appointment">Bild auswählen</a></h4>
+              <p class="description">Wählen Sie bitte Ihr medizinisches Bild aus Ihrem PC aus</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fa-solid fa-upload"></i></div>
+              <h4 class="title"><a href="#appointment">Bild Hochladen</a></h4>
+              <p class="description">Öffnen Sie bitte das ausgewähltes Bild aus Ihrem PC </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
+              <h4 class="title"><a href="#appointment">Das Ergebnis</a></h4>
+              <p class="description">Wenn Sie das Bild hochgeladen haben, dann sehen Sie es und das Ergebnis</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+    <section id="appointment" class="appointment section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Benutzerdaten</h2>
+          <p>
+            Bitte füllen Sie das folgende Daten aus. Wir benötigen Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer. Sobald Sie das Formular ausgefüllt haben, klicken Sie bitte auf die Schaltfläche 'Absenden', um Ihre Daten an uns zu senden. Wir werden Ihre Daten vertraulich behandeln und nur für den Zweck verwenden.</p>
+        </div>
+        <div class="col-lg-6 mx-auto">
+            <form method="post" enctype="multipart/form-data" class="col-md-12 form-group mt-3 mt-md-12" data-aos="fade-up" data-aos-delay="100">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              {% bootstrap_button button_type="submit" content="Absenden" extra_classes="appointment-btn mt-3" %}
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Über uns</h2>
+          <h5>🤖🔍📷 Machine-Learning-Modell 🌟🚀
+
+            .Mit diesem Machine-Learning-Modell können Sie Ihr medizinisches Bild hochladen und Vorhersagen erhalten. 📷🔍💡 Das Modell wurde mit Teachable Machine erstellt.</h5>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="{% static 'assets/img/machine-learning-tumor-detection.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>So funktioniert es:</h3>
+            <p class="fst-italic">
+
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i>Laden Sie ein Bild hoch.</li>
+              <li><i class="bi bi-check-circle"></i> Das Modell analysiert das Bild und gibt eine Vorhersage aus.</li>
+              <li><i class="bi bi-check-circle"></i> Die Vorhersage wird als Prozentsatz und Klassifizierung angezeigt.</li>
+            </ul>
+            <p>
+              Probieren Sie es aus und entdecken Sie die Möglichkeiten der maschinellen Bilderkennung! 🚀💭🔬
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+          <h3>Probieren Sie jetzt das Modell aus</h3>
+          <h5> In der medizinischen Bilderklassifikation wurde das Teachable Machine Learning Modell speziell entwickelt,
+          um zwischen verschiedenen medizinischen Bildern wie MRI, CT, PET/CT, PET/MRI und SPECT/CT zu unterscheiden.</h5>
+          <p>Senden Sie bitte anschließend das Ergebniss. Das hilft uns, das Modell hochmodern und intelligent weiterzuarbeiten.  </p>
+        <a type="submit" class="cta-btn scrollto" href="#about">wie das Modell genau funktioniert</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 my-4" data-aos="fade-right">
+            
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {% bootstrap_form imgform %}
+              {% bootstrap_button button_type="submit" content="Absenden" extra_classes="appointment-btn mt-3" %}
+          </form>
+
+          </div>
+          <div class="image img-fluid col-lg-6 order-1 order-lg-2 my-4" style='background-image: url("");' data-aos="zoom-in"></div>
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    
+
 
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
@@ -552,11 +557,8 @@
 
 
           <div class="col-lg-4 col-md-6 mx-auto footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            <h4>Github <i class="fa-brands fa-github"></i></h4>
+            <p>Für mehr Projekten in Django und Fronend klicken Sie <a href="https://github.com/zbari023">hier</a></p>
 
           </div>
 

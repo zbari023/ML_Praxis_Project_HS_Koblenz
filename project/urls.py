@@ -19,14 +19,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 # Here should be call all the functions of views.py
-from settings.views import home , dashboard , answer    
+from settings.views import home , dashboard , answeruser ,answerimg  
 
 urlpatterns = [
     path('admin/', admin.site.urls),   # URL path for the Admin panel
     path('', home),                    # URL path for the home page of Imagiolib
     path('dashboard/',dashboard),      # URL path for the dashboard page  
-    path('answer/',answer),            # URL path for the answer page
-    
+    path('answeruser/',answeruser),        # URL path for the answer page
+    path('answerimg/',answerimg),        # URL path for the answer page
 ]
 
 
