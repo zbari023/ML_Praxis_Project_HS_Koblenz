@@ -40,7 +40,7 @@ def home(request):
         form = NameuploadForm()
         imgform = ImageUploadForm()
         eform = ContactForm()
-     # sending the data with the context proccessor to html 
+    # sending the data with the context proccessor to html 
     context.update({'form': form, 'imgform': imgform,'eform': eform,'images':images ,'user': user ,'contacting': contacting })
     return render(request, 'settings/index.html', context)
 
